@@ -1,4 +1,3 @@
-include <libs.scad>;
 
 module prism(l, w, h) {
        polyhedron(points=[
