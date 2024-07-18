@@ -169,4 +169,5 @@ rotate([0,0,270])
 pyramid(6,6,8,0,0);
 
 soporte_tarjeta_isa16();
-soporte_tarjeta_pci();
+//soporte_tarjeta_isa8();
+//soporte_tarjeta_pci();
