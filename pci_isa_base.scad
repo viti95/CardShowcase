@@ -103,37 +103,41 @@ module soporte_tarjeta_pci()
     color("lightgreen") translate([ posicion_tarjeta + longitud_tarjeta, desplazamiento + 1, 2 ]) prism(10, 6, 14);
 }
 
-module single_slot(tipo)
+module single_slot(tipo, position)
 {
+    
+    displacement = position * 30;
 
-    color("cyan") cube([ 178, 30, 2 ]);
+    color("cyan") cube([ 178, 30 + displacement, 2 ]);
 
-    color("red") translate([ 0, 7, 2 ]) cube([ 2, 16, 8 ]);
+    color("red") translate([ 0, 7 + displacement, 2 ]) cube([ 2, 16, 8 ]);
 
-    color("red") translate([ 4, 7, 2 ]) cube([ 2, 16, 8 ]);
+    color("red") translate([ 4, 7 + displacement, 2 ]) cube([ 2, 16, 8 ]);
 
-    color("red") translate([ 2, 7, 2 ]) cube([ 2, 2, 8 ]);
+    color("red") translate([ 2, 7 + displacement, 2 ]) cube([ 2, 2, 8 ]);
 
-    color("red") translate([ 2, 21, 2 ]) cube([ 2, 2, 8 ]);
+    color("red") translate([ 2, 21 + displacement, 2 ]) cube([ 2, 2, 8 ]);
 
-    color("lightgreen") translate([ 6, 7, 2 ]) prism(16, 6, 8);
+    color("lightgreen") translate([ 6, 7+ displacement, 2 ]) prism(16, 6, 8);
 
-    color("lightgreen") translate([ 6, 23, 2 ]) rotate([ 0, 0, 90 ]) prism(6, 6, 8);
+    color("lightgreen") translate([ 6, 23+ displacement, 2 ]) rotate([ 0, 0, 90 ]) prism(6, 6, 8);
 
-    color("lightgreen") translate([ 0, 7, 2 ]) rotate([ 0, 0, -90 ]) prism(6, 6, 8);
+    color("lightgreen") translate([ 0, 7+ displacement, 2 ]) rotate([ 0, 0, -90 ]) prism(6, 6, 8);
 
-    color("lightgreen") translate([ 6, 23, 2 ]) pyramid(6, 6, 8, 0, 0);
+    color("lightgreen") translate([ 6, 23+ displacement, 2 ]) pyramid(6, 6, 8, 0, 0);
 
-    color("lightgreen") translate([ 6, 7, 2 ]) rotate([ 0, 0, 270 ]) pyramid(6, 6, 8, 0, 0);
+    color("lightgreen") translate([ 6, 7+ displacement, 2 ]) rotate([ 0, 0, 270 ]) pyramid(6, 6, 8, 0, 0);
 
     if (tipo=="ISA8") {
-        soporte_tarjeta_isa8();
+        translate([0,displacement,0]) soporte_tarjeta_isa8();
     } else if (tipo=="ISA16") {
-        soporte_tarjeta_isa16();
+        translate([0,displacement,0]) soporte_tarjeta_isa16();
     } else if (tipo=="PCI") {
-        soporte_tarjeta_pci();
+        translate([0,displacement,0]) soporte_tarjeta_pci();
     }
 
 }
 
-single_slot("ISA16");
+single_slot("ISA16",0);
+single_slot("ISA8",1);
+single_slot("PCI",2);
