@@ -1,5 +1,7 @@
 
 
+
+
 module prism(l, w, h)
 {
     polyhedron(points =
@@ -149,25 +151,28 @@ module single_slot(tipo, position)
 
     color("cyan") cube([ 178, 30 + displacement, 2 ]);
 
-    color("red") translate([ 0, 7 + displacement, 2 ]) cube([ 2, 16, 8 ]);
-
-    color("red") translate([ 4, 7 + displacement, 2 ]) cube([ 2, 16, 8 ]);
-
-    color("red") translate([ 2, 7 + displacement, 2 ]) cube([ 2, 2, 8 ]);
-
-    color("red") translate([ 2, 21 + displacement, 2 ]) cube([ 2, 2, 8 ]);
-
-    if (soportes)
+    if (tipo != "empty")
     {
-        color("lightgreen") translate([ 6, 7 + displacement, 2 ]) prism(16, 6, 8);
+        color("red") translate([ 0, 7 + displacement, 2 ]) cube([ 2, 16, 8 ]);
 
-        color("lightgreen") translate([ 6, 23 + displacement, 2 ]) rotate([ 0, 0, 90 ]) prism(6, 6, 8);
+        color("red") translate([ 4, 7 + displacement, 2 ]) cube([ 2, 16, 8 ]);
 
-        color("lightgreen") translate([ 0, 7 + displacement, 2 ]) rotate([ 0, 0, -90 ]) prism(6, 6, 8);
+        color("red") translate([ 2, 7 + displacement, 2 ]) cube([ 2, 2, 8 ]);
 
-        color("lightgreen") translate([ 6, 23 + displacement, 2 ]) pyramid(6, 6, 8, 0, 0);
+        color("red") translate([ 2, 21 + displacement, 2 ]) cube([ 2, 2, 8 ]);
 
-        color("lightgreen") translate([ 6, 7 + displacement, 2 ]) rotate([ 0, 0, 270 ]) pyramid(6, 6, 8, 0, 0);
+        if (soportes)
+        {
+            color("lightgreen") translate([ 6, 7 + displacement, 2 ]) prism(16, 6, 8);
+
+            color("lightgreen") translate([ 6, 23 + displacement, 2 ]) rotate([ 0, 0, 90 ]) prism(6, 6, 8);
+
+            color("lightgreen") translate([ 0, 7 + displacement, 2 ]) rotate([ 0, 0, -90 ]) prism(6, 6, 8);
+
+            color("lightgreen") translate([ 6, 23 + displacement, 2 ]) pyramid(6, 6, 8, 0, 0);
+
+            color("lightgreen") translate([ 6, 7 + displacement, 2 ]) rotate([ 0, 0, 270 ]) pyramid(6, 6, 8, 0, 0);
+        }
     }
 
     if (tipo == "ISA8")
