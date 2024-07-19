@@ -1,7 +1,4 @@
 
-
-
-
 module prism(l, w, h)
 {
     polyhedron(points =
@@ -32,16 +29,8 @@ module pyramid(w, l, h, mw, ml)
 
 soportes = true;
 
-module soporte_tarjeta_isa8()
+module base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta)
 {
-
-    desplazamiento = 2;
-
-    posicion_tarjeta = 28;
-    longitud_tarjeta = 81;
-    altura_borde_tarjeta = 28;
-    altura_interior_tarjeta = 20;
-
     color("purple") translate([ posicion_tarjeta, desplazamiento + 1, 2 ])
         cube([ longitud_tarjeta, 4, altura_borde_tarjeta ]);
 
@@ -60,87 +49,47 @@ module soporte_tarjeta_isa8()
     }
 }
 
-module soporte_tarjeta_isa16()
+module soporte_tarjeta(tipo)
 {
-
-    desplazamiento = 2;
-
-    posicion_tarjeta = 28;
-    longitud_tarjeta = 135;
-    altura_borde_tarjeta = 28;
-    altura_interior_tarjeta = 20;
-
-    color("purple") translate([ posicion_tarjeta, desplazamiento + 1, 2 ])
-        cube([ longitud_tarjeta, 4, altura_borde_tarjeta ]);
-
-    color("pink") translate([ posicion_tarjeta, desplazamiento + 5, 2 ])
-        cube([ longitud_tarjeta, 2, altura_interior_tarjeta ]);
-
-    color("purple") translate([ posicion_tarjeta, desplazamiento + 7, 2 ])
-        cube([ longitud_tarjeta, 4, altura_borde_tarjeta ]);
-
-    if (soportes)
+    if (tipo == "ISA8")
     {
-        color("lightgreen") rotate([ 0, 0, 180 ]) translate([ -posicion_tarjeta, (-desplazamiento - 11), 2 ])
-            prism(10, 6, 14);
+        desplazamiento = 2;
+        posicion_tarjeta = 28;
+        longitud_tarjeta = 81;
+        altura_borde_tarjeta = 28;
+        altura_interior_tarjeta = 20;
 
-        color("lightgreen") translate([ posicion_tarjeta + longitud_tarjeta, desplazamiento + 1, 2 ]) prism(10, 6, 14);
+        base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
     }
-}
-
-module soporte_tarjeta_pci()
-{
-
-    desplazamiento = 16;
-
-    posicion_tarjeta = 43;
-    longitud_tarjeta = 80;
-    altura_borde_tarjeta = 28;
-    altura_interior_tarjeta = 20;
-
-    color("purple") translate([ posicion_tarjeta, desplazamiento + 1, 2 ])
-        cube([ longitud_tarjeta, 4, altura_borde_tarjeta ]);
-
-    color("pink") translate([ posicion_tarjeta, desplazamiento + 5, 2 ])
-        cube([ longitud_tarjeta, 2, altura_interior_tarjeta ]);
-
-    color("purple") translate([ posicion_tarjeta, desplazamiento + 7, 2 ])
-        cube([ longitud_tarjeta, 4, altura_borde_tarjeta ]);
-
-    if (soportes)
+    else if (tipo == "ISA16")
     {
-        color("lightgreen") rotate([ 0, 0, 180 ]) translate([ -posicion_tarjeta, (-desplazamiento - 11), 2 ])
-            prism(10, 6, 14);
+        desplazamiento = 2;
+        posicion_tarjeta = 28;
+        longitud_tarjeta = 135;
+        altura_borde_tarjeta = 28;
+        altura_interior_tarjeta = 20;
 
-        color("lightgreen") translate([ posicion_tarjeta + longitud_tarjeta, desplazamiento + 1, 2 ]) prism(10, 6, 14);
+        base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
     }
-}
-
-module soporte_tarjeta_agp()
-{
-
-    desplazamiento = 16;
-
-    posicion_tarjeta = 70;
-    longitud_tarjeta = 84;
-    altura_borde_tarjeta = 28;
-    altura_interior_tarjeta = 20;
-
-    color("purple") translate([ posicion_tarjeta, desplazamiento + 1, 2 ])
-        cube([ longitud_tarjeta, 4, altura_borde_tarjeta ]);
-
-    color("pink") translate([ posicion_tarjeta, desplazamiento + 5, 2 ])
-        cube([ longitud_tarjeta, 2, altura_interior_tarjeta ]);
-
-    color("purple") translate([ posicion_tarjeta, desplazamiento + 7, 2 ])
-        cube([ longitud_tarjeta, 4, altura_borde_tarjeta ]);
-
-    if (soportes)
+    else if (tipo == "PCI")
     {
-        color("lightgreen") rotate([ 0, 0, 180 ]) translate([ -posicion_tarjeta, (-desplazamiento - 11), 2 ])
-            prism(10, 6, 14);
+        desplazamiento = 16;
+        posicion_tarjeta = 43;
+        longitud_tarjeta = 80;
+        altura_borde_tarjeta = 28;
+        altura_interior_tarjeta = 20;
 
-        color("lightgreen") translate([ posicion_tarjeta + longitud_tarjeta, desplazamiento + 1, 2 ]) prism(10, 6, 14);
+        base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
+    }
+    else if (tipo == "AGP")
+    {
+        desplazamiento = 16;
+        posicion_tarjeta = 70;
+        longitud_tarjeta = 84;
+        altura_borde_tarjeta = 28;
+        altura_interior_tarjeta = 20;
+
+        base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
     }
 }
 
@@ -175,21 +124,9 @@ module single_slot(tipo, position)
         }
     }
 
-    if (tipo == "ISA8")
+    if (tipo == "ISA8" || tipo == "ISA16" || tipo == "PCI" || tipo == "AGP")
     {
-        translate([ 0, displacement, 0 ]) soporte_tarjeta_isa8();
-    }
-    else if (tipo == "ISA16")
-    {
-        translate([ 0, displacement, 0 ]) soporte_tarjeta_isa16();
-    }
-    else if (tipo == "PCI")
-    {
-        translate([ 0, displacement, 0 ]) soporte_tarjeta_pci();
-    }
-    else if (tipo == "AGP")
-    {
-        translate([ 0, displacement, 0 ]) soporte_tarjeta_agp();
+        translate([ 0, displacement, 0 ]) soporte_tarjeta(tipo);
     }
 }
 
