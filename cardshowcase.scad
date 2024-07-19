@@ -75,7 +75,7 @@ module soporte_tarjeta(tipo)
     {
         desplazamiento = 16;
         posicion_tarjeta = 43;
-        longitud_tarjeta = 80;
+        longitud_tarjeta = 82;
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
