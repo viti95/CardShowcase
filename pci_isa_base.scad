@@ -1,4 +1,5 @@
 
+
 module prism(l, w, h)
 {
     polyhedron(points =
@@ -134,10 +135,10 @@ module soporte_tarjeta_agp()
 
     if (soportes)
     {
-    color("lightgreen") rotate([ 0, 0, 180 ]) translate([ -posicion_tarjeta, (-desplazamiento - 11), 2 ])
-        prism(10, 6, 14);
+        color("lightgreen") rotate([ 0, 0, 180 ]) translate([ -posicion_tarjeta, (-desplazamiento - 11), 2 ])
+            prism(10, 6, 14);
 
-    color("lightgreen") translate([ posicion_tarjeta + longitud_tarjeta, desplazamiento + 1, 2 ]) prism(10, 6, 14);
+        color("lightgreen") translate([ posicion_tarjeta + longitud_tarjeta, desplazamiento + 1, 2 ]) prism(10, 6, 14);
     }
 }
 
@@ -148,44 +149,48 @@ module single_slot(tipo, position)
 
     color("cyan") cube([ 178, 30 + displacement, 2 ]);
 
+    color("red") translate([ 0, 7 + displacement, 2 ]) cube([ 2, 16, 8 ]);
 
-        color("red") translate([ 0, 7 + displacement, 2 ]) cube([ 2, 16, 8 ]);
+    color("red") translate([ 4, 7 + displacement, 2 ]) cube([ 2, 16, 8 ]);
 
-        color("red") translate([ 4, 7 + displacement, 2 ]) cube([ 2, 16, 8 ]);
+    color("red") translate([ 2, 7 + displacement, 2 ]) cube([ 2, 2, 8 ]);
 
-        color("red") translate([ 2, 7 + displacement, 2 ]) cube([ 2, 2, 8 ]);
+    color("red") translate([ 2, 21 + displacement, 2 ]) cube([ 2, 2, 8 ]);
 
-        color("red") translate([ 2, 21 + displacement, 2 ]) cube([ 2, 2, 8 ]);
+    if (soportes)
+    {
+        color("lightgreen") translate([ 6, 7 + displacement, 2 ]) prism(16, 6, 8);
 
+        color("lightgreen") translate([ 6, 23 + displacement, 2 ]) rotate([ 0, 0, 90 ]) prism(6, 6, 8);
 
-        if (soportes)
-        {
-            color("lightgreen") translate([ 6, 7 + displacement, 2 ]) prism(16, 6, 8);
+        color("lightgreen") translate([ 0, 7 + displacement, 2 ]) rotate([ 0, 0, -90 ]) prism(6, 6, 8);
 
-            color("lightgreen") translate([ 6, 23 + displacement, 2 ]) rotate([ 0, 0, 90 ]) prism(6, 6, 8);
+        color("lightgreen") translate([ 6, 23 + displacement, 2 ]) pyramid(6, 6, 8, 0, 0);
 
-            color("lightgreen") translate([ 0, 7 + displacement, 2 ]) rotate([ 0, 0, -90 ]) prism(6, 6, 8);
+        color("lightgreen") translate([ 6, 7 + displacement, 2 ]) rotate([ 0, 0, 270 ]) pyramid(6, 6, 8, 0, 0);
+    }
 
-            color("lightgreen") translate([ 6, 23 + displacement, 2 ]) pyramid(6, 6, 8, 0, 0);
-
-            color("lightgreen") translate([ 6, 7 + displacement, 2 ]) rotate([ 0, 0, 270 ]) pyramid(6, 6, 8, 0, 0);
-        }
-
-        if (tipo=="ISA8") {
-            translate([0,displacement,0]) soporte_tarjeta_isa8();
-        } else if (tipo=="ISA16") {
-            translate([0,displacement,0]) soporte_tarjeta_isa16();
-        } else if (tipo=="PCI") {
-            translate([0,displacement,0]) soporte_tarjeta_pci();
-        } else if (tipo=="AGP") {
-            translate([0,displacement,0]) soporte_tarjeta_agp();
-        }
-
+    if (tipo == "ISA8")
+    {
+        translate([ 0, displacement, 0 ]) soporte_tarjeta_isa8();
+    }
+    else if (tipo == "ISA16")
+    {
+        translate([ 0, displacement, 0 ]) soporte_tarjeta_isa16();
+    }
+    else if (tipo == "PCI")
+    {
+        translate([ 0, displacement, 0 ]) soporte_tarjeta_pci();
+    }
+    else if (tipo == "AGP")
+    {
+        translate([ 0, displacement, 0 ]) soporte_tarjeta_agp();
+    }
 }
 
-single_slot("ISA16",0);
-single_slot("ISA8",1);
-single_slot("PCI",2);
-single_slot("empty",3);
+single_slot("ISA16", 0);
+single_slot("ISA8", 1);
+single_slot("PCI", 2);
+single_slot("empty", 3);
 single_slot("PCI", 4);
 single_slot("AGP", 5);
