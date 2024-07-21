@@ -1,4 +1,4 @@
-include <cardshowcase.scad>
+include <..\cardshowcase.scad>
 
 ancho_placa_base = "VLB";
 
