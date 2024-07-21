@@ -1,4 +1,3 @@
-
 module base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta)
 {
     color("purple") translate([ posicion_tarjeta, desplazamiento + 1, 2 ])
@@ -116,11 +115,3 @@ module single_slot(tipo, position)
         translate([ 0, displacement, 0 ]) soporte_tarjeta(tipo);
     }
 }
-
-ancho_placa_base = "VLB";
-
-single_slot("ISA8", 0);
-single_slot("ISA16", 1);
-single_slot("VLB", 2);
-single_slot("PCI", 3);
-single_slot("AGP", 4);
