@@ -10,7 +10,28 @@ module base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_b
         cube([ longitud_tarjeta, 4, altura_borde_tarjeta ]);
 }
 
-module soporte_tarjeta(tipo)
+module base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta, tab_size)
+{
+    color("purple") translate([ posicion_tarjeta, desplazamiento + 1, 2 ])
+        cube([ tab_size, 4, altura_borde_tarjeta ]);
+
+    color("pink") translate([ posicion_tarjeta, desplazamiento + 5, 2 ])
+        cube([ tab_size, 2, altura_interior_tarjeta ]);
+
+    color("purple") translate([ posicion_tarjeta, desplazamiento + 7, 2 ])
+        cube([ tab_size, 4, altura_borde_tarjeta ]);
+
+    color("purple") translate([ longitud_tarjeta + posicion_tarjeta - tab_size, desplazamiento + 1, 2 ])
+        cube([ tab_size, 4, altura_borde_tarjeta ]);
+
+    color("pink") translate([ longitud_tarjeta + posicion_tarjeta - tab_size, desplazamiento + 5, 2 ])
+        cube([ tab_size, 2, altura_interior_tarjeta ]);
+
+    color("purple") translate([ longitud_tarjeta + posicion_tarjeta - tab_size, desplazamiento + 7, 2 ])
+        cube([ tab_size, 4, altura_borde_tarjeta ]);
+}
+
+module soporte_tarjeta(tipo, size)
 {
     if (tipo == "ISA8")
     {
@@ -20,11 +41,15 @@ module soporte_tarjeta(tipo)
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
-        base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
+        if (size == 0) {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
+        } else {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta, size);
+        }
     }
     else if (tipo == "ISA16")
     {
-        soporte_tarjeta("ISA8");
+        soporte_tarjeta("ISA8", size);
 
         desplazamiento = 2;
         posicion_tarjeta = 28 + 81 + 6;
@@ -32,11 +57,15 @@ module soporte_tarjeta(tipo)
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
-        base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
+        if (size == 0) {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
+        } else {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta, size);
+        }
     }
     else if (tipo == "VLB")
     {
-        soporte_tarjeta("ISA16");
+        soporte_tarjeta("ISA16", size);
 
         desplazamiento = 2;
         posicion_tarjeta = 28 + 135 + 10;
@@ -44,7 +73,11 @@ module soporte_tarjeta(tipo)
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
-        base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
+        if (size == 0) {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
+        } else {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta, size);
+        }
     }
     else if (tipo == "PCI")
     {
@@ -54,7 +87,11 @@ module soporte_tarjeta(tipo)
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
-        base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
+        if (size == 0) {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
+        } else {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta, size);
+        }
     }
     else if (tipo == "AGP")
     {
@@ -64,11 +101,15 @@ module soporte_tarjeta(tipo)
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
-        base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
+        if (size == 0) {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
+        } else {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta, size);
+        }
     }
 }
 
-module single_slot(tipo, position)
+module single_slot(tipo, position, size = 0)
 {
 
     displacement = position * 30;
@@ -112,6 +153,6 @@ module single_slot(tipo, position)
 
     if (tipo == "ISA8" || tipo == "ISA16" || tipo == "PCI" || tipo == "AGP" || tipo == "VLB")
     {
-        translate([ 0, displacement, 0 ]) soporte_tarjeta(tipo);
+        translate([ 0, displacement, 0 ]) soporte_tarjeta(tipo, size);
     }
 }
