@@ -135,7 +135,7 @@ module soporte_tarjeta(tipo, size)
     }
 }
 
-module base(tipo)
+module base_placa(tipo)
 {
     if (tipo == "ISA8")
     {
@@ -159,6 +159,20 @@ module base(tipo)
     }
 }
 
+override_base = undef;
+
+module base(tipo)
+{
+    if (override_base == undef)
+    {
+        base_placa(tipo);
+    }
+    else
+    {
+        base_placa(override_base);
+    }
+}
+
 module single_slot(tipo, position, size = 0)
 {
     displacement = position * 30;
@@ -171,9 +185,6 @@ module single_slot(tipo, position, size = 0)
 
     color("red") translate([ 2, 21 + displacement, 0 ]) cube([ 2, 2, 10 ]);
 
-    if (tipo == "ISA8" || tipo == "ISA16" || tipo == "PCI" || tipo == "AGP" || tipo == "VLB")
-    {
-        translate([ 0, displacement, 0 ]) soporte_tarjeta(tipo, size);
-        translate([ 0, displacement, 0 ]) base(tipo);
-    }
+    translate([ 0, displacement, 0 ]) soporte_tarjeta(tipo, size);
+    translate([ 0, displacement, 0 ]) base(tipo);
 }

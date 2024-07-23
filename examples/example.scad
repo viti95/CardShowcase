@@ -1,5 +1,7 @@
 include <..\cardshowcase.scad>
 
+override_base = "VLB";
+
 single_slot("ISA8", 0);
 single_slot("ISA16", 1);
 single_slot("VLB", 2);
