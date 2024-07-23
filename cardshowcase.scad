@@ -1,34 +1,35 @@
 module base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta)
 {
-    color("purple") translate([ posicion_tarjeta, desplazamiento + 1, 2 ])
-        cube([ longitud_tarjeta, 4, altura_borde_tarjeta ]);
+    color("purple") translate([ posicion_tarjeta, desplazamiento + 1, 0 ])
+        cube([ longitud_tarjeta, 4, altura_borde_tarjeta + 2 ]);
 
-    color("pink") translate([ posicion_tarjeta, desplazamiento + 5, 2 ])
-        cube([ longitud_tarjeta, 2, altura_interior_tarjeta ]);
+    color("pink") translate([ posicion_tarjeta, desplazamiento + 5, 0 ])
+        cube([ longitud_tarjeta, 2, altura_interior_tarjeta + 2 ]);
 
-    color("purple") translate([ posicion_tarjeta, desplazamiento + 7, 2 ])
-        cube([ longitud_tarjeta, 4, altura_borde_tarjeta ]);
+    color("purple") translate([ posicion_tarjeta, desplazamiento + 7, 0 ])
+        cube([ longitud_tarjeta, 4, altura_borde_tarjeta + 2 ]);
 }
 
-module base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta, tab_size)
+module base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                          altura_interior_tarjeta, tab_size)
 {
-    color("purple") translate([ posicion_tarjeta, desplazamiento + 1, 2 ])
-        cube([ tab_size, 4, altura_borde_tarjeta ]);
+    color("purple") translate([ posicion_tarjeta, desplazamiento + 1, 0 ])
+        cube([ tab_size, 4, altura_borde_tarjeta + 2 ]);
 
-    color("pink") translate([ posicion_tarjeta, desplazamiento + 5, 2 ])
-        cube([ tab_size, 2, altura_interior_tarjeta ]);
+    color("pink") translate([ posicion_tarjeta, desplazamiento + 5, 0 ])
+        cube([ tab_size, 2, altura_interior_tarjeta + 2 ]);
 
-    color("purple") translate([ posicion_tarjeta, desplazamiento + 7, 2 ])
-        cube([ tab_size, 4, altura_borde_tarjeta ]);
+    color("purple") translate([ posicion_tarjeta, desplazamiento + 7, 0 ])
+        cube([ tab_size, 4, altura_borde_tarjeta + 2 ]);
 
-    color("purple") translate([ longitud_tarjeta + posicion_tarjeta - tab_size, desplazamiento + 1, 2 ])
-        cube([ tab_size, 4, altura_borde_tarjeta ]);
+    color("purple") translate([ longitud_tarjeta + posicion_tarjeta - tab_size, desplazamiento + 1, 0 ])
+        cube([ tab_size, 4, altura_borde_tarjeta + 2 ]);
 
-    color("pink") translate([ longitud_tarjeta + posicion_tarjeta - tab_size, desplazamiento + 5, 2 ])
-        cube([ tab_size, 2, altura_interior_tarjeta ]);
+    color("pink") translate([ longitud_tarjeta + posicion_tarjeta - tab_size, desplazamiento + 5, 0 ])
+        cube([ tab_size, 2, altura_interior_tarjeta + 2 ]);
 
-    color("purple") translate([ longitud_tarjeta + posicion_tarjeta - tab_size, desplazamiento + 7, 2 ])
-        cube([ tab_size, 4, altura_borde_tarjeta ]);
+    color("purple") translate([ longitud_tarjeta + posicion_tarjeta - tab_size, desplazamiento + 7, 0 ])
+        cube([ tab_size, 4, altura_borde_tarjeta + 2 ]);
 }
 
 module soporte_tarjeta(tipo, size)
@@ -41,10 +42,15 @@ module soporte_tarjeta(tipo, size)
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
-        if (size == 0) {
-            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
-        } else {
-            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta, size);
+        if (size == 0)
+        {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                         altura_interior_tarjeta);
+        }
+        else
+        {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                               altura_interior_tarjeta, size);
         }
     }
     else if (tipo == "ISA16")
@@ -57,10 +63,15 @@ module soporte_tarjeta(tipo, size)
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
-        if (size == 0) {
-            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
-        } else {
-            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta, size);
+        if (size == 0)
+        {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                         altura_interior_tarjeta);
+        }
+        else
+        {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                               altura_interior_tarjeta, size);
         }
     }
     else if (tipo == "VLB")
@@ -73,10 +84,15 @@ module soporte_tarjeta(tipo, size)
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
-        if (size == 0) {
-            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
-        } else {
-            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta, size);
+        if (size == 0)
+        {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                         altura_interior_tarjeta);
+        }
+        else
+        {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                               altura_interior_tarjeta, size);
         }
     }
     else if (tipo == "PCI")
@@ -87,10 +103,15 @@ module soporte_tarjeta(tipo, size)
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
-        if (size == 0) {
-            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
-        } else {
-            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta, size);
+        if (size == 0)
+        {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                         altura_interior_tarjeta);
+        }
+        else
+        {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                               altura_interior_tarjeta, size);
         }
     }
     else if (tipo == "AGP")
@@ -101,58 +122,61 @@ module soporte_tarjeta(tipo, size)
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
-        if (size == 0) {
-            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta);
-        } else {
-            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta, altura_interior_tarjeta, size);
+        if (size == 0)
+        {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                         altura_interior_tarjeta);
         }
+        else
+        {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                               altura_interior_tarjeta, size);
+        }
+    }
+}
+
+module base(tipo)
+{
+    if (tipo == "ISA8")
+    {
+        color("cyan") cube([ 119, 30, 2 ]);
+    }
+    else if (tipo == "ISA16")
+    {
+        color("cyan") cube([ 173, 30, 2 ]);
+    }
+    else if (tipo == "VLB")
+    {
+        color("cyan") cube([ 258, 30, 2 ]);
+    }
+    else if (tipo == "PCI")
+    {
+        color("cyan") cube([ 135, 30, 2 ]);
+    }
+    else if (tipo == "AGP")
+    {
+        color("cyan") cube([ 164, 30, 2 ]);
     }
 }
 
 module single_slot(tipo, position, size = 0)
 {
-
     displacement = position * 30;
-
-    if (ancho_placa_base == "ISA8")
-    {
-
-        color("cyan") cube([ 119, 30 + displacement, 2 ]);
-    }
-    else if (ancho_placa_base == "ISA16")
-    {
-
-        color("cyan") cube([ 173, 30 + displacement, 2 ]);
-    }
-    else if (ancho_placa_base == "VLB")
-    {
-
-        color("cyan") cube([ 258, 30 + displacement, 2 ]);
-    }
-    else if (ancho_placa_base == "PCI")
-    {
-
-        color("cyan") cube([ 135, 30 + displacement, 2 ]);
-    }
-    else if (ancho_placa_base == "AGP")
-    {
-
-        color("cyan") cube([ 164, 30 + displacement, 2 ]);
-    }
 
     if (tipo != "empty")
     {
-        color("red") translate([ 0, 7 + displacement, 2 ]) cube([ 2, 16, 8 ]);
+        color("red") translate([ 0, 7 + displacement, 0 ]) cube([ 2, 16, 10 ]);
 
-        color("red") translate([ 4, 7 + displacement, 2 ]) cube([ 2, 16, 8 ]);
+        color("red") translate([ 4, 7 + displacement, 0 ]) cube([ 2, 16, 10 ]);
 
-        color("red") translate([ 2, 7 + displacement, 2 ]) cube([ 2, 2, 8 ]);
+        color("red") translate([ 2, 7 + displacement, 0 ]) cube([ 2, 2, 10 ]);
 
-        color("red") translate([ 2, 21 + displacement, 2 ]) cube([ 2, 2, 8 ]);
+        color("red") translate([ 2, 21 + displacement, 0 ]) cube([ 2, 2, 10 ]);
     }
 
     if (tipo == "ISA8" || tipo == "ISA16" || tipo == "PCI" || tipo == "AGP" || tipo == "VLB")
     {
         translate([ 0, displacement, 0 ]) soporte_tarjeta(tipo, size);
+        translate([ 0, displacement, 0 ]) base(tipo);
     }
 }

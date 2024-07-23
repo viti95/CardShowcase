@@ -1,7 +1,5 @@
 include <..\cardshowcase.scad>
 
-ancho_placa_base = "ISA16";
-
 single_slot("ISA16", 0);
 single_slot("ISA16", 1);
 single_slot("PCI", 1);
