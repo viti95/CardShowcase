@@ -163,16 +163,13 @@ module single_slot(tipo, position, size = 0)
 {
     displacement = position * 30;
 
-    if (tipo != "empty")
-    {
-        color("red") translate([ 0, 7 + displacement, 0 ]) cube([ 2, 16, 10 ]);
+    color("red") translate([ 0, 7 + displacement, 0 ]) cube([ 2, 16, 10 ]);
 
-        color("red") translate([ 4, 7 + displacement, 0 ]) cube([ 2, 16, 10 ]);
+    color("red") translate([ 4, 7 + displacement, 0 ]) cube([ 2, 16, 10 ]);
 
-        color("red") translate([ 2, 7 + displacement, 0 ]) cube([ 2, 2, 10 ]);
+    color("red") translate([ 2, 7 + displacement, 0 ]) cube([ 2, 2, 10 ]);
 
-        color("red") translate([ 2, 21 + displacement, 0 ]) cube([ 2, 2, 10 ]);
-    }
+    color("red") translate([ 2, 21 + displacement, 0 ]) cube([ 2, 2, 10 ]);
 
     if (tipo == "ISA8" || tipo == "ISA16" || tipo == "PCI" || tipo == "AGP" || tipo == "VLB")
     {
