@@ -37,8 +37,8 @@ module soporte_tarjeta(tipo, size)
     if (tipo == "ISA8")
     {
         desplazamiento = 2;
-        posicion_tarjeta = 28;
-        longitud_tarjeta = 81;
+        posicion_tarjeta = 27;
+        longitud_tarjeta = 82;
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
