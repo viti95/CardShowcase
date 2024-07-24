@@ -118,7 +118,7 @@ module soporte_tarjeta(tipo, size)
     {
         desplazamiento = 16;
         posicion_tarjeta = 70;
-        longitud_tarjeta = 84;
+        longitud_tarjeta = 68;
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
 
@@ -155,7 +155,7 @@ module base_placa(tipo)
     }
     else if (tipo == "AGP")
     {
-        color("cyan") cube([ 164, 30, 2 ]);
+        color("cyan") cube([ 148, 30, 2 ]);
     }
 }
 
