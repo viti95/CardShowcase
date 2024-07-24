@@ -58,7 +58,7 @@ module soporte_tarjeta(tipo, size)
         soporte_tarjeta("ISA8", size);
 
         desplazamiento = 2;
-        posicion_tarjeta = 28 + 81 + 6;
+        posicion_tarjeta = 28 + 81 + 5;
         longitud_tarjeta = 48;
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
@@ -79,7 +79,7 @@ module soporte_tarjeta(tipo, size)
         soporte_tarjeta("ISA16", size);
 
         desplazamiento = 2;
-        posicion_tarjeta = 28 + 135 + 10;
+        posicion_tarjeta = 28 + 135 + 8;
         longitud_tarjeta = 75;
         altura_borde_tarjeta = 28;
         altura_interior_tarjeta = 20;
