@@ -133,6 +133,25 @@ module soporte_tarjeta(tipo, size)
                                altura_interior_tarjeta, size);
         }
     }
+    else if (tipo == "EISA")
+    {
+        desplazamiento = 2;
+        posicion_tarjeta = 27;
+        longitud_tarjeta = 52 + 82;
+        altura_borde_tarjeta = 28;
+        altura_interior_tarjeta = 15;
+
+        if (size == 0)
+        {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                         altura_interior_tarjeta);
+        }
+        else
+        {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                               altura_interior_tarjeta, size);
+        }
+    }
 }
 
 module base_placa(tipo)
@@ -156,6 +175,10 @@ module base_placa(tipo)
     else if (tipo == "AGP")
     {
         color("cyan") cube([ 148, 30, 2 ]);
+    }
+    else if (tipo == "EISA")
+    {
+        color("cyan") cube([ 173, 30, 2 ]);
     }
 }
 
