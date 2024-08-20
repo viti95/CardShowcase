@@ -114,6 +114,25 @@ module soporte_tarjeta(tipo, size)
                                altura_interior_tarjeta, size);
         }
     }
+    else if (tipo == "PCIe16")
+    {
+        desplazamiento = 16;
+        posicion_tarjeta = 50;
+        longitud_tarjeta = 85;
+        altura_borde_tarjeta = 25;
+        altura_interior_tarjeta = 17;
+
+        if (size == 0)
+        {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                         altura_interior_tarjeta);
+        }
+        else
+        {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                               altura_interior_tarjeta, size);
+        }
+    }
     else if (tipo == "AGP")
     {
         desplazamiento = 16;
@@ -171,6 +190,10 @@ module base_placa(tipo)
     else if (tipo == "PCI")
     {
         color("cyan") cube([ 135, 30, 2 ]);
+    }
+    else if (tipo == "PCIe16")
+    {
+        color("cyan") cube([ 153, 30, 2 ]);
     }
     else if (tipo == "AGP")
     {
