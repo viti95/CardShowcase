@@ -202,6 +202,9 @@ module base_placa(tipo)
     else if (tipo == "EISA")
     {
         color("cyan") cube([ 173, 30, 2 ]);
+    }else if (is_num(tipo))
+    {
+        color("cyan") cube([ tipo, 30, 2]);
     }
 }
 

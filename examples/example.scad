@@ -1,5 +1,8 @@
 include <..\cardshowcase.scad>
 
+// override_base is optional, can be a number (mm) or a type of card ("ISA16", ...)
+override_base = 250;
+
 single_slot("ISA8", 0);
 single_slot("ISA16", 1);
 single_slot("EISA", 2);
