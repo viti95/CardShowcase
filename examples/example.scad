@@ -10,3 +10,6 @@ single_slot("VLB", 3);
 single_slot("PCI", 4);
 single_slot("AGP", 5);
 single_slot("PCIe16", 6);
+single_slot("PCIe8", 7);
+single_slot("PCIe4", 8);
+single_slot("PCIe1", 9);

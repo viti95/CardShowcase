@@ -133,6 +133,63 @@ module soporte_tarjeta(tipo, size)
                                altura_interior_tarjeta, size);
         }
     }
+    else if (tipo == "PCIe8")
+    {
+        desplazamiento = 16;
+        posicion_tarjeta = 50;
+        longitud_tarjeta = 52;
+        altura_borde_tarjeta = 25;
+        altura_interior_tarjeta = 17;
+
+        if (size == 0)
+        {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                         altura_interior_tarjeta);
+        }
+        else
+        {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                               altura_interior_tarjeta, size);
+        }
+    }
+    else if (tipo == "PCIe4")
+    {
+        desplazamiento = 16;
+        posicion_tarjeta = 50;
+        longitud_tarjeta = 35;
+        altura_borde_tarjeta = 25;
+        altura_interior_tarjeta = 17;
+
+        if (size == 0)
+        {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                         altura_interior_tarjeta);
+        }
+        else
+        {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                               altura_interior_tarjeta, size);
+        }
+    }
+    else if (tipo == "PCIe1")
+    {
+        desplazamiento = 16;
+        posicion_tarjeta = 50;
+        longitud_tarjeta = 21;
+        altura_borde_tarjeta = 25;
+        altura_interior_tarjeta = 17;
+
+        if (size == 0)
+        {
+            base_tarjeta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                         altura_interior_tarjeta);
+        }
+        else
+        {
+            base_tarjeta_corta(desplazamiento, posicion_tarjeta, longitud_tarjeta, altura_borde_tarjeta,
+                               altura_interior_tarjeta, size);
+        }
+    }
     else if (tipo == "AGP")
     {
         desplazamiento = 16;
@@ -193,7 +250,19 @@ module base_placa(tipo)
     }
     else if (tipo == "PCIe16")
     {
-        color("cyan") cube([ 153, 30, 2 ]);
+        color("cyan") cube([ 145, 30, 2 ]);
+    }
+    else if (tipo == "PCIe8")
+    {
+        color("cyan") cube([ 112, 30, 2 ]);
+    }
+    else if (tipo == "PCIe4")
+    {
+        color("cyan") cube([ 95, 30, 2 ]);
+    }
+    else if (tipo == "PCIe1")
+    {
+        color("cyan") cube([ 81, 30, 2 ]);
     }
     else if (tipo == "AGP")
     {
