@@ -119,8 +119,8 @@ module soporte_tarjeta(tipo, size)
         desplazamiento = 16;
         posicion_tarjeta = 50;
         longitud_tarjeta = 85;
-        altura_borde_tarjeta = 25;
-        altura_interior_tarjeta = 17;
+        altura_borde_tarjeta = 24;
+        altura_interior_tarjeta = 16;
 
         if (size == 0)
         {
@@ -138,8 +138,8 @@ module soporte_tarjeta(tipo, size)
         desplazamiento = 16;
         posicion_tarjeta = 50;
         longitud_tarjeta = 52;
-        altura_borde_tarjeta = 25;
-        altura_interior_tarjeta = 17;
+        altura_borde_tarjeta = 24;
+        altura_interior_tarjeta = 16;
 
         if (size == 0)
         {
@@ -157,8 +157,8 @@ module soporte_tarjeta(tipo, size)
         desplazamiento = 16;
         posicion_tarjeta = 50;
         longitud_tarjeta = 35;
-        altura_borde_tarjeta = 25;
-        altura_interior_tarjeta = 17;
+        altura_borde_tarjeta = 24;
+        altura_interior_tarjeta = 16;
 
         if (size == 0)
         {
@@ -176,8 +176,8 @@ module soporte_tarjeta(tipo, size)
         desplazamiento = 16;
         posicion_tarjeta = 50;
         longitud_tarjeta = 21;
-        altura_borde_tarjeta = 25;
-        altura_interior_tarjeta = 17;
+        altura_borde_tarjeta = 24;
+        altura_interior_tarjeta = 16;
 
         if (size == 0)
         {
