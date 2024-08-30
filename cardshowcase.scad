@@ -234,43 +234,43 @@ module base_placa(tipo)
 {
     if (tipo == "ISA8")
     {
-        color("cyan") cube([ 119, 30, 2 ]);
+        color("cyan") cube([ 109, 30, 2 ]);
     }
     else if (tipo == "ISA16")
     {
-        color("cyan") cube([ 173, 30, 2 ]);
+        color("cyan") cube([ 162, 30, 2 ]);
     }
     else if (tipo == "VLB")
     {
-        color("cyan") cube([ 258, 30, 2 ]);
+        color("cyan") cube([ 246, 30, 2 ]);
     }
     else if (tipo == "PCI")
     {
-        color("cyan") cube([ 135, 30, 2 ]);
+        color("cyan") cube([ 125, 30, 2 ]);
     }
     else if (tipo == "PCIe16")
     {
-        color("cyan") cube([ 145, 30, 2 ]);
+        color("cyan") cube([ 135, 30, 2 ]);
     }
     else if (tipo == "PCIe8")
     {
-        color("cyan") cube([ 112, 30, 2 ]);
+        color("cyan") cube([ 102, 30, 2 ]);
     }
     else if (tipo == "PCIe4")
     {
-        color("cyan") cube([ 95, 30, 2 ]);
+        color("cyan") cube([ 85, 30, 2 ]);
     }
     else if (tipo == "PCIe1")
     {
-        color("cyan") cube([ 81, 30, 2 ]);
+        color("cyan") cube([ 71, 30, 2 ]);
     }
     else if (tipo == "AGP")
     {
-        color("cyan") cube([ 148, 30, 2 ]);
+        color("cyan") cube([ 138, 30, 2 ]);
     }
     else if (tipo == "EISA")
     {
-        color("cyan") cube([ 173, 30, 2 ]);
+        color("cyan") cube([ 162, 30, 2 ]);
     }
     else if (is_num(tipo))
     {
