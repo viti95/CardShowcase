@@ -1,4 +1,4 @@
-include <..\cardshowcase.scad>
+include <../cardshowcase.scad>
 
 // override_base is optional, can be a number (mm) or a type of card ("ISA16", ...)
 override_base = 250;

@@ -1,4 +1,4 @@
-include <..\cardshowcase.scad>
+include <../cardshowcase.scad>
 
 override_base = "ISA16";
 
